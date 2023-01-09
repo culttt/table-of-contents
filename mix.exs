@@ -47,7 +47,9 @@ defmodule App.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:nimble_publisher, "~> 0.1.3"},
+      {:slugify, "~> 1.3"}
     ]
   end
 
