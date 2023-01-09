@@ -11,7 +11,12 @@ defmodule App.Blog.Parser do
         |> Enum.filter(&String.starts_with?(&1, "## "))
         |> Enum.map(fn original ->
           title = String.replace(original, "## ", "")
-          slug = Slug.slugify(title)
+          slug =
+            title
+            |> String.downcase()
+            |> String.replace(~r/[^a-z]+/, "-")
+            |> String.trim("-")
+
           {original, title, slug}
         end)
 

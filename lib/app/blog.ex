@@ -9,7 +9,8 @@ defmodule App.Blog do
     build: Blog.Post,
     parser: Blog.Parser,
     from: Application.app_dir(:app, "priv/blog/*.md"),
-    as: :posts
+    as: :posts,
+    earmark_options: [postprocessor: &Blog.Processor.process/1]
 
   defmodule NotFoundError do
     defexception [:message, plug_status: 404]
