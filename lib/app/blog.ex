@@ -3,10 +3,11 @@ defmodule App.Blog do
   Blog posts
   """
 
-  alias App.Blog.Post
+  alias App.Blog
 
   use NimblePublisher,
-    build: Post,
+    build: Blog.Post,
+    parser: Blog.Parser,
     from: Application.app_dir(:app, "priv/blog/*.md"),
     as: :posts
 
